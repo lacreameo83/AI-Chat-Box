@@ -6,6 +6,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import { Link } from "react-router-dom";
 import CreateIcon from "@mui/icons-material/Create";
 import image from '../../../public/1671100359865.jpg'
+import RefreshIcon from "@mui/icons-material/Refresh";
 
 function GeminiApi() {
   const {
@@ -57,6 +58,10 @@ function GeminiApi() {
       }, 3000);
     }
   };
+const handlesetDefsultkey =()=>{
+  setApi("AIzaSyCbXVALuyy06u6v4A0qa2PGSVN9ojeFxGM");
+}
+
 const date = new Date().getFullYear()
   return (
     <div className="relative">
@@ -213,15 +218,10 @@ const date = new Date().getFullYear()
               </a>
               <span> or </span>
               <div
-                onClick={() => setDefsultkey(!defaultKey)}
+                onClick={handlesetDefsultkey}
                 className="text-purple-400 relative"
               >
                 use Default key
-                {defaultKey && (
-                  <p className="absolute text-black bg-white shadow-md h-[5vh] w-fit p-2 bottom-20 right-13">
-                    AIzaSyCbXVALuyy06u6v4A0qa2PGSVN9ojeFxGM
-                  </p>
-                )}
               </div>
             </div>
             <p className="font-[700]">your Api Key is not working</p>
@@ -229,7 +229,11 @@ const date = new Date().getFullYear()
             <p>your API is working properly</p>
           </div>
         )}
-
+        {/* Regenarate */}
+        <div className="flex items-center gap-2 border p-1 rounded-3xl w-[50vw] h-[6vh] md:w-[12vw] ">
+          <RefreshIcon sx={{ width: "19px" }} />
+          <p>Regenerate response</p>
+        </div>
         {/* the input */}
         <div className="mb-2">
           <GeminiInput />
