@@ -1,18 +1,34 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import SideBarItems from "./SideBarItems";
-import HomeIcon from "@mui/icons-material/Home";
-import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
-import { Button } from '@mui/material';
-// import ViewQuiltIcon from "@mui/icons-material/ViewQuilt";
-// import MoreVertIcon from "@mui/icons-material/MoreVert";
-// import { Link } from "react-router-dom";
+import image from '../../../../public/1671100359865.jpg'
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import { GloblalContext } from '../../../utilitie/GloblaContext';
-
-
+import HomeIcon from "@mui/icons-material/Home";
+import LockIcon from "@mui/icons-material/Lock";
+import LayersIcon from "@mui/icons-material/Layers";
+import BookmarksIcon from "@mui/icons-material/Bookmarks";
+import IosShareIcon from "@mui/icons-material/IosShare";
 
 function Sidebar() {
-const {previousValue}=useContext(GloblalContext)
+  const { previousValue, ispreviousValue, setInputData, onSent } =
+    useContext(GloblalContext);
+
+  const handlePreviousValue =(item)=>{
+    
+      
+         setInputData(item );
+     onSent()
+    
+  }
+
+
+  useEffect(() => {
+    previousValue.forEach((item, index) => {
+      
+      localStorage.setItem(`item_${index}`, item);
+    });
+  }, [previousValue]); 
+
   return (
     <div className="shadow-lg  bg-white/50  h-[100vh] flex flex-col  items-start   ">
       <div className="h-[10vh] w-[100%] border-b-[1px] flex items-center justify-center">
@@ -22,41 +38,64 @@ const {previousValue}=useContext(GloblalContext)
       </div>
       {/* display of the side bars */}
       <div className="flex flex-col justify-between h-[90vh]">
-        <div className=" w-[100%]  pl-12">
+        <div className=" w-[13vw] pl-1  ">
+          <div className="font-[900] flex items-center gap-2">
+            <img
+              className="h-[40px] w-[40px]"
+              src="https://img.freepik.com/premium-vector/generate-ai-abstract-vector-symbol-artificial-intelligence-colorful-stars-icon_34480-1539.jpg"
+            />
+            <h3>Chat Ui</h3>
+          </div>
+
           <SideBarItems
-            icon={<NotificationsNoneIcon sx={{ width: "17px" }} />}
-            primary="Chat Ui"
-          />
-          <SideBarItems
-            icon={<NotificationsNoneIcon sx={{ width: "17px" }} />}
-            primary="All Template"
+            icon={<LayersIcon sx={{ width: "17px" }} />}
+            primary="My Projects"
             icon2="pro"
           />
           <SideBarItems
-            icon={<NotificationsNoneIcon sx={{ width: "17px" }} />}
-            primary="All Template"
+            icon={<HomeIcon sx={{ width: "17px" }} />}
+            primary="Template"
             icon2="pro"
           />
           <SideBarItems
-            icon={<NotificationsNoneIcon sx={{ width: "17px" }} />}
-            primary="All Template"
+            icon={<BookmarksIcon sx={{ width: "17px" }} />}
+            primary="Other Pages"
             icon2="pro"
           />
-          <SideBarItems
-            icon={<NotificationsNoneIcon sx={{ width: "17px" }} />}
-            primary="All Template"
-          />
+          <SideBarItems primary="Promo Page" />
+          <SideBarItems primary="Promo Page" />
+          <SideBarItems primary="Promo Page" />
         </div>
         {/* previous value */}
-        <div className=" m-auto">
-          <h2 className='font-[900]'>Previous Search</h2>
-          {previousValue.map((items) => {
-            return (
-              <div>
-                <p className="p-1">{items}</p>
-              </div>
-            );
-          })}
+        <div className="pl-2 h-fit displayResult  overflow-y-scroll">
+          {ispreviousValue ? (
+            <div className=" m-auto bg-stone-100">
+              <h2 className="font-[900] sticky top-0 bg-stone-50 h-[5vh]  text-center pt-2">
+                Previous Search
+              </h2>
+
+              {previousValue.map((item, index) => (
+                <div
+                  onClick={() => handlePreviousValue(item)}
+                  className="flex items-center"
+                  key={index}
+                >
+                  <p className="text-[12px]">{index},</p>
+                  <p className="p-1 text-[12px]">{item}.</p>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div>
+              <SideBarItems
+                icon={<LockIcon sx={{ width: "17px" }} />}
+                primary="Admin Page"
+                icon2="pro"
+              />
+              <SideBarItems primary="All Template" />
+              <SideBarItems primary="Promo Page" />
+            </div>
+          )}
         </div>
         {/* bottom div */}
         <div>
@@ -74,12 +113,17 @@ const {previousValue}=useContext(GloblalContext)
               </button>
             </div>
           </div>
-          <div className="mx-auto my-2 w-[91%] shadow-sm rounded-md ">
-            <SideBarItems
-              icon={<NotificationsNoneIcon sx={{ width: "17px" }} />}
-              primary="All Template"
-              icon2="pro"
-            />
+          <div className="mx-auto my-2 w-[91%]   ">
+            <div className="flex items-center shadow-sm rounded-md bg-stone-50 h-[4vh] ">
+              <div className="h-[30px] w-[30px] rounded-[100%] ">
+                <img
+                  className="h-[30px] object-fit w-[30px] rounded-[100%] "
+                  src={image}
+                />
+              </div>
+              <SideBarItems primary="Osonwa presh " />
+              <IosShareIcon sx={{ marginLeft: "20px" }} />
+            </div>
           </div>
         </div>
       </div>

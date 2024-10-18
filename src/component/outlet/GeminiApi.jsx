@@ -4,6 +4,8 @@ import GeminiInput from "./GeminiInput";
 import { GloblalContext } from "../../utilitie/GloblaContext";
 import CircularProgress from "@mui/material/CircularProgress"; 
 import { Link } from "react-router-dom";
+import CreateIcon from "@mui/icons-material/Create";
+import image from '../../../public/1671100359865.jpg'
 
 function GeminiApi() {
   const {
@@ -38,7 +40,7 @@ function GeminiApi() {
 
         setDisabledled(false);
         setIsApiTrue(true);
-        setLoading(false); // Reset loading state after success
+        setLoading(false); 
         setTimeout(() => {
           SetApiOutput("");
         }, 2000);
@@ -59,7 +61,7 @@ const date = new Date().getFullYear()
   return (
     <div className="relative">
       {ApiOutPut && (
-        <div className="bg-stone-200 left-[28%] shadow-lg h-[11vh] w-[50vw] flex items-center justify-center absolute md:left-[40%] z-30 mdh-[10vh] md:w-[15vw]">
+        <div className="bg-stone-100 left-[28%] shadow-lg h-[5vh] w-[50vw] top-[10px]  flex items-center justify-center absolute md:left-[40%] z-30  md:w-[15vw]">
           <p
             className={
               ApiOutPut === "successful"
@@ -127,13 +129,35 @@ const date = new Date().getFullYear()
                         <hr className="hr" />
                       </div>
                     ) : (
-                      <div className="text-start">
-                        {inputData && (
-                          <p className="font-[900]">Question : {inputData} ?</p>
-                        )}
-                        <div
-                          dangerouslySetInnerHTML={{ __html: displayResult }}
-                        ></div>
+                      <div>
+                        <div className="border  h-[5vh] w-[50vw] mb-1 flex items-center px-3 justify-between">
+                          <div className="flex items-center  gap-3">
+                            <img
+                              className="h-[30px] w-[30px] rounded-[100%] "
+                              src={image}
+                            />
+                            <p>{inputData}</p>
+                          </div>
+                          <CreateIcon />
+                        </div>
+
+                        <div className="text-start  ">
+                          <div className="flex gap-2 items-start w-[50vw]">
+                            <img
+                              className="w-[50px] h-[50px]"
+                              src="https://img.freepik.com/premium-vector/generate-ai-abstract-vector-symbol-artificial-intelligence-colorful-stars-icon_34480-1539.jpg"
+                            />
+                            <div>
+                              <p className="font-[900]">Answer </p>
+
+                              <div
+                                dangerouslySetInnerHTML={{
+                                  __html: displayResult,
+                                }}
+                              ></div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     )}
                   </div>
@@ -164,17 +188,18 @@ const date = new Date().getFullYear()
             <p>never sent anywhere else</p>
             <div className="flex items-center gap-2">
               <input
-                className="border outline-none p-1 px-2 rounded-3xl"
+                className="border text-[11px] outline-none p-1 px-2 rounded-3xl"
                 type="text"
                 placeholder="  xxxxxxxxxxxxxxxxxxx"
                 value={Api}
                 onChange={hangleApiInput}
               />
               <Button
+                sx={{ height: "30px" }}
                 variant="contained"
                 onClick={handleApiKey}
-                disabled={loading} // Disable the button when loading
-                startIcon={loading ? <CircularProgress size={20} /> : null} // Show loading spinner
+                disabled={loading}
+                startIcon={loading ? <CircularProgress size={20} /> : null}
               >
                 {loading ? "Loading..." : "Save"}
               </Button>
@@ -217,7 +242,8 @@ const date = new Date().getFullYear()
         }}
         className="grid grid-cols-1 h-[6vh]   md:h-[3vh] text-[10px] px-5 bg-stone-200 md:flex items-center  justify-between"
       >
-        <div className="order-2 md:order-1">
+        {/* footer */}
+        <div className="order-2 md:order-1 ]">
           <p>@{date} Horizon UI Template All Rights Reserved</p>
         </div>
         <div className="order-1 md:order-2">

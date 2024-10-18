@@ -3,24 +3,22 @@
 function SideBarItems({ primary, icon, icon2 }) {
  
   return (
-    <div className="h-[5vh] text-[13px]   font-[500] justify-between pr-3 flex items-center ">
-      
+    <div className=" my-4 text-[13px]   font-[500] justify-between  flex items-center ">
       <div className="flex  items-center gap-1">
-        <p>{icon}</p>
+        {icon ? <p > {icon} </p> : <p className="pl-5"></p>}
 
         <p>{primary}</p>
       </div>
 
-      <p>
+      <div>
         {icon2 ? (
           <div className="flex items-center justify-center bg-blue-100 text-blue-600  h-[30px] w-[30px] rounded-md">
-            <p className=""> {icon2} </p>{" "}
+            <p  className=""> {icon2} </p>{" "}
           </div>
         ) : (
           ""
         )}
-      
-      </p>
+      </div>
     </div>
   );
 }

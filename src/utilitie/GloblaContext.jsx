@@ -13,7 +13,12 @@ const [displayResult,setDisplayResult]=useState('')
 const [message, setMessage] = useState(false);
 const [loadingOutput, setloadingOutput] = useState(false);
 const [previousValue,setpreviousValue]=useState([])
+const [ispreviousValue,setispreviousValue]=useState(false)
+// display of input
+const [displayInput,setDisplayInput]=useState(false)
 
+
+// funtion to triger the response
 const onSent = async (prompt)=>{
 setMessage(true);
 setloadingOutput(true);
@@ -23,10 +28,18 @@ setTimeout(() => {
 
 const response = await run(inputData);
 
- setDisplayResult(response);
+for (let i = 0; i < response.length; i++) {
+  const element = response[i] == "**" ? <br /> : response ;
+  setDisplayResult(element);
+}
+     
+
+ 
+ setDisplayInput(true)
  setpreviousValue((prev)=>([...prev,inputData]))
+ setispreviousValue(true)
  
- 
+ return
 }
 
 // onSent("what is react")
@@ -44,6 +57,8 @@ const response = await run(inputData);
    message,
    previousValue,
    loadingOutput,
+   ispreviousValue,
+   displayInput,
  };
 
     return (
