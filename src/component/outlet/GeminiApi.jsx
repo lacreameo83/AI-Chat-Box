@@ -19,6 +19,7 @@ function GeminiApi() {
     loadingOutput,
     setInputData,
     onSent,
+    previousValue,
   } = useContext(GloblalContext);
   const [ApiOutPut, SetApiOutput] = useState("");
   const [Api, setApi] = useState("");
@@ -141,40 +142,43 @@ const date = new Date().getFullYear()
                         <hr className="hr" />
                       </div>
                     ) : (
-                      <div>
-                        <div className="   h-[5vh] ml-5 w-[90vw]   mb-5 flex items-center  gap-3 md:w-[50vw]">
-                          <div className="">
-                            <img
-                              className="h-[30px] w-[30px] rounded-[100%] "
-                              src={image}
-                            />
+                      displayResult.map((el, index) => (
+                        <div key={index} className="flex flex-col gap-3">
+                          <div className="  mt-6  h-[5vh] ml-[42vw] lg:ml-[10vw]    mb-5 flex items-center  gap-3 md:w-[50vw]">
+                            <div className="">
+                              <img
+                                className="h-[30px] w-[30px] rounded-[100%]  "
+                                src={image}
+                              />
+                            </div>
+                            <div className="flex  rounded-lg items-center justify-between border w-fit ">
+                              <p className="p-2 font-[600] text-sm ">
+                                {previousValue[index]}
+                              </p>
+                              <CreateIcon sx={{ width: "12px" }} />
+                            </div>
                           </div>
-                          <div className="flex rounded-lg items-center justify-between border w-[75vw] md:w-[55vw]">
-                            <p className="p-2 font-[600] text-sm ">
-                              {inputData}
-                            </p>
-                            <CreateIcon sx={{ width: "12px" }} />
-                          </div>
-                        </div>
+                          {/* start */}
 
-                        <div className="text-start  ">
-                          <div className="flex gap-2 items-start w-[90vw] md:w-[50vw]">
-                            <img
-                              className="w-[40px] h-[50px]"
-                              src="https://img.freepik.com/premium-vector/generate-ai-abstract-vector-symbol-artificial-intelligence-colorful-stars-icon_34480-1539.jpg"
-                            />
-                            <div className="shadow-md displayResult w-[100%] rounded-lg p-3 h-fit overflow-y-scroll lg:w-[70vw]">
-                              <p className="font-[900]">Answer </p>
+                          <div className="text-start  ">
+                            <div className="flex gap-2 items-start w-[90vw] md:w-[50vw]">
+                              <img
+                                className="w-[40px] h-[50px]"
+                                src="https://img.freepik.com/premium-vector/generate-ai-abstract-vector-symbol-artificial-intelligence-colorful-stars-icon_34480-1539.jpg"
+                              />
+                              <div className="shadow-md displayResult rounded-lg p-3 h-fit overflow-y-scroll lg:w-[70vw]">
+                                <p className="font-[900]">Answer </p>
 
-                              <div
-                                dangerouslySetInnerHTML={{
-                                  __html: displayResult,
-                                }}
-                              ></div>
+                                <div
+                                  dangerouslySetInnerHTML={{
+                                    __html: el,
+                                  }}
+                                ></div>
+                              </div>
                             </div>
                           </div>
                         </div>
-                      </div>
+                      ))
                     )}
                   </div>
                 ) : null}

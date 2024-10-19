@@ -9,7 +9,7 @@ const [isApiKey,setIsApiKey]=useState(false)
 
 //  for the input for searching
 const [inputData,setInputData]=useState("")
-const [displayResult,setDisplayResult]=useState('')
+const [displayResult,setDisplayResult]=useState([])
 const [message, setMessage] = useState(false);
 const [loadingOutput, setloadingOutput] = useState(false);
 const [previousValue,setpreviousValue]=useState([])
@@ -28,10 +28,9 @@ setTimeout(() => {
 
 const response = await run(inputData);
 
-for (let i = 0; i < response.length; i++) {
-  const element = response[i] == "**" ? <br /> : response ;
-  setDisplayResult(element);
-}
+
+  setDisplayResult((element1) => [...element1, response]);
+
      
 
  
