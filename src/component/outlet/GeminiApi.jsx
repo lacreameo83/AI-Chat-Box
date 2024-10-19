@@ -130,7 +130,7 @@ const date = new Date().getFullYear()
                   boxShadow: dartmode && "1x 1px 1px blue",
                   padding: dartmode && "4px",
                 }}
-                className=" displayResult overflow-y-scroll w-[60vw] h-[50vh] md:w-[60vw] p-4 md:h-[60vh] text-[15px]  flex flex-col items-center gap-2"
+                className=" displayResult overflow-y-scroll w-[99vw] h-[50vh] md:w-[60vw] p-4 md:h-[60vh] text-[15px]  flex flex-col items-center gap-2"
               >
                 {displayResult ? (
                   <div>
@@ -142,30 +142,31 @@ const date = new Date().getFullYear()
                       </div>
                     ) : (
                       <div>
-                        <div className="   h-[5vh] ml-5 w-[49vw]   mb-5 flex items-center  gap-3">
+                        <div className="   h-[5vh] ml-5 w-[90vw]   mb-5 flex items-center  gap-3 md:w-[50vw]">
                           <div className="">
                             <img
                               className="h-[30px] w-[30px] rounded-[100%] "
                               src={image}
                             />
                           </div>
-                          <div className="flex rounded-lg items-center justify-between border w-[55vw]">
-                            <p className="p-2 font-[600] text-sm ">{inputData}</p>
-                            <CreateIcon />
+                          <div className="flex rounded-lg items-center justify-between border w-[75vw] md:w-[55vw]">
+                            <p className="p-2 font-[600] text-sm ">
+                              {inputData}
+                            </p>
+                            <CreateIcon sx={{ width: "12px" }} />
                           </div>
                         </div>
 
                         <div className="text-start  ">
-                          <div className="flex gap-2 items-start w-[50vw]">
+                          <div className="flex gap-2 items-start w-[90vw] md:w-[50vw]">
                             <img
-                              className="w-[50px] h-[50px]"
+                              className="w-[40px] h-[50px]"
                               src="https://img.freepik.com/premium-vector/generate-ai-abstract-vector-symbol-artificial-intelligence-colorful-stars-icon_34480-1539.jpg"
                             />
-                            <div className="shadow-md displayResult rounded-lg p-3 h-fit overflow-y-scroll">
+                            <div className="shadow-md displayResult w-[100%] rounded-lg p-3 h-fit overflow-y-scroll lg:w-[70vw]">
                               <p className="font-[900]">Answer </p>
 
                               <div
-                                className=""
                                 dangerouslySetInnerHTML={{
                                   __html: displayResult,
                                 }}
@@ -251,7 +252,7 @@ const date = new Date().getFullYear()
         {isApitrue ? (
           <div
             onClick={handlegenarate}
-            className="flex items-center gap-2 border p-1 rounded-3xl w-[50vw] h-[6vh] md:w-[12vw] "
+            className="flex items-center gap-2 border p-1 rounded-3xl w-[50vw] h-[6vh] md:w-[22vw] lg:w-[12vw] "
           >
             <RefreshIcon sx={{ width: "19px" }} />
             <p>Regenerate response</p>

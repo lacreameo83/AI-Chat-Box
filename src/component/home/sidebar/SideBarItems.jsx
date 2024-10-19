@@ -3,7 +3,7 @@
 function SideBarItems({ primary, icon, icon2 }) {
  
   return (
-    <div className=" my-4 text-[13px]   font-[500] justify-between  flex items-center ">
+    <div className=" my-4 text-[13px]   font-[500] justify-between  flex items-center  ">
       <div className="flex  items-center gap-1">
         {icon ? <p > {icon} </p> : <p className="pl-5"></p>}
 

@@ -31,15 +31,15 @@ function Sidebar() {
   }, [previousValue]); 
 
   return (
-    <div className="  bg-white/50  h-[100vh] flex flex-col  items-start shadow-md   ">
-      <div className="h-[10vh] w-[100%] border-b-[1px] flex items-center justify-center shadow-sm">
+    <div className="  bg-white/50 h-[125vh]  md:h-[100vh] flex flex-col  items-start shadow-md  ">
+      <div className="h-[8vh] w-[100%] border-b-[1px] flex items-center justify-center shadow-sm">
         <h1 className="ml-5">
           <span className="font-[900]">HORIZON</span> AI FREE
         </h1>
       </div>
       {/* display of the side bars */}
-      <div className="flex flex-col  h-[90vh]">
-        <div className=" w-[13vw] pl-1  ">
+      <div className="flex flex-col justify-between w-[100%]    md:h-[92vh] md:w-[28vw] lg:w-[13vw]">
+        <div className="  pl-1  ">
           <div className="font-[900] flex items-center gap-2">
             <img
               className="h-[40px] w-[40px]"
@@ -66,59 +66,62 @@ function Sidebar() {
           <SideBarItems primary="Promo Page" />
           <SideBarItems primary="Promo Page" />
           <SideBarItems primary="Promo Page" />
-        </div>
-        {/* previous value */}
-        <div className="pl-2 h-fit displayResult  overflow-y-scroll">
-          {ispreviousValue ? (
-            <div className=" m-auto bg-stone-100">
-              <h2 className="font-[900] sticky top-0 bg-stone-50 h-[5vh]  text-center pt-2">
-                Previous Search
-              </h2>
 
-              {previousValue.map((item, index) => (
-                <div
-                  onClick={() => handlePreviousValue(item)}
-                  className="flex items-center"
-                  key={index}
-                >
-                  <p className="text-[12px]">{index},</p>
-                  <p className="p-1 text-[12px]">{item}.</p>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div>
-              <SideBarItems
-                icon={<LockIcon sx={{ width: "17px" }} />}
-                primary="Admin Page"
-                icon2="pro"
-              />
-              <SideBarItems primary="All Template" />
-              <SideBarItems primary="Promo Page" />
-            </div>
-          )}
+          {/* previous value */}
+          <div className="pl-2 h-fit displayResult  overflow-y-scroll">
+            {ispreviousValue ? (
+              <div className=" m-auto bg-stone-100">
+                <h2 className="font-[900] sticky top-0 bg-stone-50 h-[5vh]  text-center pt-2">
+                  Previous Search
+                </h2>
+
+                {previousValue.map((item, index) => (
+                  <div
+                    onClick={() => handlePreviousValue(item)}
+                    className="flex items-center"
+                    key={index}
+                  >
+                    <p className="text-[12px]">{index},</p>
+                    <p className="p-1 text-[12px]">{item}.</p>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div>
+                <SideBarItems
+                  icon={<LockIcon sx={{ width: "17px" }} />}
+                  primary="Admin Page"
+                  icon2="pro"
+                />
+                <SideBarItems primary="All Template" />
+                <SideBarItems primary="Promo Page" />
+              </div>
+            )}
+          </div>
         </div>
         {/* bottom div */}
-        <div className="flex flex-col justify-between">
-          <div className="relative w-[99%] mb-6 mx-auto    h-[30vh]">
-            <div className="h-[60px] mb-[-30px] z-10 relative m-auto w-[60px]  border-[4px]  bg-[#4A25E1] rounded-full flex items-center justify-center">
+        <div className="flex items-center flex-col gap-2 ">
+          <div className=" relative   w-[99%]  mx-auto  ">
+            <div className=" h-[80px] mb-[-35px] z-10 relative m-auto w-[80px]  border-[4px]  bg-[#4A25E1] rounded-full flex items-center justify-center lg:w-[50px] lg:h-[50px] lg:mb-[-20px]">
               <div className="h-[30px] flex items-center justify-center w-[30px] rounded-[100%] bg-white">
                 <ModeNightIcon
-                  sx={{ color: "blue", width: "60px", rotate: "10px" }}
+                  sx={{ color: "#6d4def", width: "60px", rotate: "10px" }}
                 />
               </div>
             </div>
-            <div className=" flex flex-col items-center gap-1 justify-center w-[100% ]  h-[90%] bg-[#4A25E1] rounded-2xl text-white text-[14px]">
-              <h2>Go unlimited with PRO</h2>
-              <p>Get your AI Project to another</p>
-              <p>level and start doing more with</p>
-              <p>Horizon AI Template PRO!</p>
-              <button className="bg-[#6d4def] p-2 rounded-2xl my-1">
+            <div className="w-[98%] py-10 flex flex-col  items-center  md:h-[20vh]  gap-2 justify-between p-2 md:w-[100% ] py-5   bg-[#4A25E1] rounded-2xl text-white text-[19px] lg:text-[12px]  md:text-[12px] lg:py-5">
+              <div className="flex flex-col    justify-center ">
+                <h2>Go unlimited with PRO</h2>
+                <p>Get your AI Project to another</p>
+                <p>level and start doing more with</p>
+                <p>Horizon AI Template PRO!</p>
+              </div>
+              <button className="bg-[#6d4def] p-1 rounded-2xl my-1">
                 Get started With Pro
               </button>
             </div>
           </div>
-          <div className="mx-auto my-2 w-[91%]   ">
+          <div className="mx-auto w-[91%]   ">
             <div className="flex items-center shadow-sm rounded-md bg-white h-[4vh] ">
               <div className="h-[30px] w-[30px] rounded-[100%] ">
                 <img
