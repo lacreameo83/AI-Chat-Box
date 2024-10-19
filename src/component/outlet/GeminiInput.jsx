@@ -17,14 +17,18 @@ function GeminiInput() {
         className="border rounded-3xl p-2 w-[250px] md:w-[500px] outline-none"
       />
       <Button
-        onClick={()=>onSent()}
-        disabled={disabled}
+        onClick={() => onSent()}
         variant="contained"
         sx={{
-        
-          color: dartmode ? "white" : "black",
+          color: dartmode ? "white" : "white",
           borderColor: dartmode ? "white" : "black",
           borderWidth: dartmode ? "2px" : "2px",
+          backgroundColor: "#4A25E1",
+          borderRadius: "15px",
+         
+         
+          fontSize: "10px",
+          boxShadow: "2px 2px 1px  #4A25E1 ",
         }}
       >
         Submit

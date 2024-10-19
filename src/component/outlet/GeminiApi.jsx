@@ -17,6 +17,8 @@ function GeminiApi() {
     message,
     inputData,
     loadingOutput,
+    setInputData,
+    onSent,
   } = useContext(GloblalContext);
   const [ApiOutPut, SetApiOutput] = useState("");
   const [Api, setApi] = useState("");
@@ -61,6 +63,9 @@ function GeminiApi() {
 const handlesetDefsultkey =()=>{
   setApi("AIzaSyCbXVALuyy06u6v4A0qa2PGSVN9ojeFxGM");
 }
+const handlegenarate =()=>{
+onSent()
+}
 
 const date = new Date().getFullYear()
   return (
@@ -81,13 +86,14 @@ const date = new Date().getFullYear()
 
       <div className="flex flex-col justify-between h-[87vh] items-center">
         {!isApitrue ? (
-          <div className="mt-3">
-            <Button
-              variant="contained"
-              sx={{ backgroundColor: "white", color: "black" }}
-            >
-              Gemini
-            </Button>
+          <div className="mt-3 flex flex-col items-center">
+            <div className="font-[900] flex items-center gap-1 shadow-md px-2 rounded-md">
+              <img
+                className="h-[40px] w-[40px]"
+                src="https://img.freepik.com/premium-vector/generate-ai-abstract-vector-symbol-artificial-intelligence-colorful-stars-icon_34480-1539.jpg"
+              />
+              <h3>Gemini</h3>
+            </div>
             <p
               style={{ color: dartmode && "white" }}
               className="text-[10px] my-2"
@@ -96,13 +102,14 @@ const date = new Date().getFullYear()
             </p>
           </div>
         ) : (
-          <div className="mt-3">
-            <Button
-              variant="contained"
-              sx={{ backgroundColor: "white", color: "black" }}
-            >
-              Chat AI
-            </Button>
+          <div className="mt-3 flex flex-col items-center">
+            <div className="font-[900] flex items-center gap-1 shadow-md px-2 rounded-md">
+              <img
+                className="h-[40px] w-[40px]"
+                src="https://img.freepik.com/premium-vector/generate-ai-abstract-vector-symbol-artificial-intelligence-colorful-stars-icon_34480-1539.jpg"
+              />
+              <h3>Chart AI</h3>
+            </div>
             <p
               style={{ color: dartmode && "white" }}
               className="text-[10px] my-2"
@@ -123,7 +130,7 @@ const date = new Date().getFullYear()
                   boxShadow: dartmode && "1x 1px 1px blue",
                   padding: dartmode && "4px",
                 }}
-                className=" displayResult overflow-y-scroll w-[96%] h-[50vh] md:w-[60vw] p-4 md:h-[60vh] text-[15px] shadow-lg flex flex-col items-center gap-2"
+                className=" displayResult overflow-y-scroll w-[60vw] h-[50vh] md:w-[60vw] p-4 md:h-[60vh] text-[15px]  flex flex-col items-center gap-2"
               >
                 {displayResult ? (
                   <div>
@@ -135,15 +142,17 @@ const date = new Date().getFullYear()
                       </div>
                     ) : (
                       <div>
-                        <div className="border  h-[5vh] w-[50vw] mb-1 flex items-center px-3 justify-between">
-                          <div className="flex items-center  gap-3">
+                        <div className="   h-[5vh] ml-5 w-[49vw]   mb-5 flex items-center  gap-3">
+                          <div className="">
                             <img
                               className="h-[30px] w-[30px] rounded-[100%] "
                               src={image}
                             />
-                            <p>{inputData}</p>
                           </div>
-                          <CreateIcon />
+                          <div className="flex rounded-lg items-center justify-between border w-[55vw]">
+                            <p className="p-2 font-[600] text-sm ">{inputData}</p>
+                            <CreateIcon />
+                          </div>
                         </div>
 
                         <div className="text-start  ">
@@ -152,10 +161,11 @@ const date = new Date().getFullYear()
                               className="w-[50px] h-[50px]"
                               src="https://img.freepik.com/premium-vector/generate-ai-abstract-vector-symbol-artificial-intelligence-colorful-stars-icon_34480-1539.jpg"
                             />
-                            <div>
+                            <div className="shadow-md displayResult rounded-lg p-3 h-fit overflow-y-scroll">
                               <p className="font-[900]">Answer </p>
 
                               <div
+                                className=""
                                 dangerouslySetInnerHTML={{
                                   __html: displayResult,
                                 }}
@@ -169,8 +179,11 @@ const date = new Date().getFullYear()
                 ) : null}
               </div>
             ) : (
-              <div className="h-[20vh] opacity-5 flex items-center justify-center">
-                <img src="https://static.wixstatic.com/media/64c978_f87865c123a64c26ab710873be8570fc~mv2.jpeg/v1/fill/w_200,h_244,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/64c978_f87865c123a64c26ab710873be8570fc~mv2.jpeg" />
+              <div className="h-[50vh] w-[50vw] bg-black object-fill opacity-5 flex items-center justify-center">
+                <img
+                  className="h-[50vh] w-[50vw]"
+                  src="https://static.wixstatic.com/media/64c978_f87865c123a64c26ab710873be8570fc~mv2.jpeg/v1/fill/w_200,h_244,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/64c978_f87865c123a64c26ab710873be8570fc~mv2.jpeg"
+                />
               </div>
             )}
           </div>
@@ -200,7 +213,12 @@ const date = new Date().getFullYear()
                 onChange={hangleApiInput}
               />
               <Button
-                sx={{ height: "30px" }}
+                sx={{
+                  height: "30px",
+                  backgroundColor: "#7BCBD4",
+                  borderRadius: "20px",
+                  fontSize: "10px",
+                }}
                 variant="contained"
                 onClick={handleApiKey}
                 disabled={loading}
@@ -230,10 +248,15 @@ const date = new Date().getFullYear()
           </div>
         )}
         {/* Regenarate */}
-        <div className="flex items-center gap-2 border p-1 rounded-3xl w-[50vw] h-[6vh] md:w-[12vw] ">
-          <RefreshIcon sx={{ width: "19px" }} />
-          <p>Regenerate response</p>
-        </div>
+        {isApitrue ? (
+          <div
+            onClick={handlegenarate}
+            className="flex items-center gap-2 border p-1 rounded-3xl w-[50vw] h-[6vh] md:w-[12vw] "
+          >
+            <RefreshIcon sx={{ width: "19px" }} />
+            <p>Regenerate response</p>
+          </div>
+        ) : null}
         {/* the input */}
         <div className="mb-2">
           <GeminiInput />
