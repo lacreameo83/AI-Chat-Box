@@ -1,5 +1,6 @@
 import { createContext, useState } from "react";
 import run from "../config/gemini";
+import { formControlClasses } from "@mui/material";
 export const  GloblalContext =createContext("")
 
 function GloblalContextProvider({children}) {
@@ -27,9 +28,28 @@ setTimeout(() => {
 }, 5000);
 
 const response = await run(inputData);
+let responseArray = response.split("**")
+let newResponse;
+for (let i = 0; i < responseArray.length; i++) {
+  if (i === 0 || i % 2 !== 1) {
+    newResponse += responseArray[i]
+  }else {
+    newResponse += "<b><br>" + responseArray[i]+ "</br></b>"
+  }
+}
+let response2 = newResponse.split("*")
+let newresponse2;
+for (let i = 0; i < response2.length; i++) {
+  if (i === 0 || i % 2 !== 1) {
+     newresponse2 += response2[i];
+     
+  } else {
+    newresponse2 += "";
+   
+  }
+}
 
-
-  setDisplayResult((element1) => [...element1, response]);
+  setDisplayResult((element1) => [...element1, newresponse2]);
 
      
 
@@ -37,7 +57,7 @@ const response = await run(inputData);
  setDisplayInput(true)
  setpreviousValue((prev)=>([...prev,inputData]))
  setispreviousValue(true)
- 
+setInputData("")
  return
 }
 
