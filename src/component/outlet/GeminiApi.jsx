@@ -144,7 +144,7 @@ const date = new Date().getFullYear()
                     ) : (
                       displayResult.map((el, index) => (
                         <div key={index} className="flex flex-col gap-3">
-                          <div className="  mt-6  h-[5vh] ml-[42vw] lg:ml-[10vw]    mb-5 flex items-center  gap-3 md:w-[50vw]">
+                          <div className="  mt-6   h-[5vh]   justify-end   mb-5 flex items-center  gap-3 md:w-[50vw]">
                             <div className="">
                               <img
                                 className="h-[30px] w-[30px] rounded-[100%]  "
