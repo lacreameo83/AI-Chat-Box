@@ -68,7 +68,7 @@ function Sidebar() {
           <SideBarItems primary="Promo Page" />
 
           {/* previous value */}
-          <div className="pl-2 h-[30vh] displayResult  overflow-y-scroll">
+          <div className="pl-2 h-[20vh] displayResult  overflow-y-scroll">
             {ispreviousValue ? (
               <div className="  m-auto bg-stone-100">
                 <h2 className="font-[900] sticky top-0 bg-stone-50 h-[5vh]  text-center pt-2">
