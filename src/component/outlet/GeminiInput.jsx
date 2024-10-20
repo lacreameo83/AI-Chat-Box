@@ -5,7 +5,8 @@ import { GloblalContext } from '../../utilitie/GloblaContext';
 function GeminiInput() {
     const { dartmode, disabled, inputData, setInputData ,onSent} =
       useContext(GloblalContext);
-    // const [disabled, setDisabledled] = useState("disabled");
+    console.log(inputData);
+    
   return (
     <div className="flex items-center gap-2">
       <input
@@ -21,14 +22,12 @@ function GeminiInput() {
         variant="contained"
         sx={{
           color: dartmode ? "white" : "white",
-          borderColor: dartmode ? "white" : "black",
-          borderWidth: dartmode ? "2px" : "2px",
-          backgroundColor: "#4A25E1",
-          borderRadius: "15px",
-         
-         
+          borderRadius: "25px",
+          background: "linear-gradient(to right bottom, #4A25E1, #7B5AFF)",
+width:"150px",
           fontSize: "10px",
-          boxShadow: "2px 2px 1px  #4A25E1 ",
+          height:"6vh"
+          
         }}
       >
         Submit

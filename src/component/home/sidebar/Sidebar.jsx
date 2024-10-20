@@ -39,7 +39,7 @@ function Sidebar() {
       </div>
       {/* display of the side bars */}
       <div className="flex flex-col justify-between w-[100%]    md:h-[92vh] md:w-[28vw] lg:w-[13vw]">
-        <div className="  pl-1  ">
+        <div className="  px-3  ">
           <div className="font-[900] flex items-center gap-2">
             <img
               className="h-[40px] w-[40px]"
@@ -129,7 +129,7 @@ function Sidebar() {
                   src={image}
                 />
               </div>
-              <SideBarItems primary="Osonwa presh " />
+             <p className=''>osonwa precious</p>
               <IosShareIcon sx={{ marginLeft: "20px" }} />
             </div>
           </div>

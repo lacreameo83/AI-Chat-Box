@@ -63,6 +63,9 @@ function GeminiApi() {
   };
 const handlesetDefsultkey =()=>{
   setApi("AIzaSyCbXVALuyy06u6v4A0qa2PGSVN9ojeFxGM");
+  
+  
+
 }
 const handlegenarate =()=>{
 onSent()
@@ -200,6 +203,7 @@ const date = new Date().getFullYear()
               borderColor: dartmode && "blue",
               boxShadow: dartmode && "1x 1px 1px blue",
               padding: dartmode && "4px",
+              borderRadius:'20px'
             }}
             className="w-[96%] pb-4 h-fit md:w-[60vw] md:h-[40vh] lg:w-[30vw] text-[15px] shadow-lg flex flex-col items-center gap-2"
           >
@@ -220,7 +224,7 @@ const date = new Date().getFullYear()
               <Button
                 sx={{
                   height: "30px",
-                  backgroundColor: "#7BCBD4",
+                   background: "linear-gradient(to right bottom, #7BCBD4, #29C6B7)",
                   borderRadius: "20px",
                   fontSize: "10px",
                 }}

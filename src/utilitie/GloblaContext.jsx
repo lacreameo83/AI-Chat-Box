@@ -29,7 +29,7 @@ setTimeout(() => {
 
 const response = await run(inputData);
 let responseArray = response.split("**")
-let newResponse;
+let newResponse = "";
 for (let i = 0; i < responseArray.length; i++) {
   if (i === 0 || i % 2 !== 1) {
     newResponse += responseArray[i]
@@ -38,7 +38,7 @@ for (let i = 0; i < responseArray.length; i++) {
   }
 }
 let response2 = newResponse.split("*")
-let newresponse2;
+let newresponse2 = "";
 for (let i = 0; i < response2.length; i++) {
   if (i === 0 || i % 2 !== 1) {
      newresponse2 += response2[i];
