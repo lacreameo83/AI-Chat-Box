@@ -9,6 +9,7 @@ import LayersIcon from "@mui/icons-material/Layers";
 import BookmarksIcon from "@mui/icons-material/Bookmarks";
 import IosShareIcon from "@mui/icons-material/IosShare";
 import ModeNightIcon from "@mui/icons-material/ModeNight";
+import SendOutlinedIcon from "@mui/icons-material/SendOutlined";
 
 function Sidebar() {
   const { previousValue, ispreviousValue, setInputData, onSent } =
@@ -31,21 +32,21 @@ function Sidebar() {
   }, [previousValue]); 
 
   return (
-    <div className="  bg-white/50 h-[125vh]  md:h-[100vh] flex flex-col  items-start shadow-md  ">
-      <div className="h-[8vh] w-[100%] border-b-[1px] flex items-center justify-center shadow-sm">
-        <h1 className="ml-5">
-          <span className="font-[900]">HORIZON</span> AI FREE
+    <div className="  bg-white/50 px-2 h-[125vh]  md:h-[100vh] flex flex-col  items-start shadow-md  ">
+      <div className="h-[8vh] w-full sm:w-[30vw]  border-b-[1px] flex items-center justify-center shadow-sm">
+        <h1 className="ml-4 text-[12px]">
+          <span className="font-[900] text-[12px] ">HORIZON</span> AI FREE
         </h1>
       </div>
       {/* display of the side bars */}
-      <div className="flex flex-col justify-between w-[100%]    md:h-[92vh] md:w-[28vw] lg:w-[13vw]">
+      <div className="flex flex-col justify-between w-[100%] displayResult  overflow-scroll   md:h-[92vh] md:w-[28vw] lg:w-full">
         <div className="  px-3  ">
           <div className="font-[900] flex items-center gap-2">
             <img
-              className="h-[40px] w-[40px]"
+              className="h-[30px] w-[30px]"
               src="https://img.freepik.com/premium-vector/generate-ai-abstract-vector-symbol-artificial-intelligence-colorful-stars-icon_34480-1539.jpg"
             />
-            <h3>Chat Ui</h3>
+            <h3 className="text-[12px] ">Chat UI</h3>
           </div>
 
           <SideBarItems
@@ -69,34 +70,15 @@ function Sidebar() {
 
           {/* previous value */}
           <div className="pl-2 h-[20vh] displayResult  overflow-y-scroll">
-            {ispreviousValue ? (
-              <div className="  m-auto bg-stone-100">
-                <h2 className="font-[900] sticky top-0 bg-stone-50 h-[5vh]  text-center pt-2">
-                  Previous Search
-                </h2>
-
-                {previousValue.map((item, index) => (
-                  <div
-                    onClick={() => handlePreviousValue(item)}
-                    className="flex items-center"
-                    key={index}
-                  >
-                    <p className="text-[12px]">{index},</p>
-                    <p className="p-1 text-[12px]">{item}.</p>
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <div>
-                <SideBarItems
-                  icon={<LockIcon sx={{ width: "17px" }} />}
-                  primary="Admin Page"
-                  icon2="pro"
-                />
-                <SideBarItems primary="All Template" />
-                <SideBarItems primary="Promo Page" />
-              </div>
-            )}
+            <div>
+              <SideBarItems
+                icon={<LockIcon sx={{ width: "17px" }} />}
+                primary="Admin Page"
+                icon2="pro"
+              />
+              <SideBarItems primary="All Template" />
+              <SideBarItems primary="Promo Page" />
+            </div>
           </div>
         </div>
         {/* bottom div */}
@@ -109,28 +91,28 @@ function Sidebar() {
                 />
               </div>
             </div>
-            <div className="w-[98%] py-10 flex flex-col  items-center  md:h-[20vh]  gap-2 justify-between p-2 md:w-[100% ] py-5   bg-[#4A25E1] rounded-2xl text-white text-[19px] lg:text-[12px]  md:text-[12px] lg:py-5">
-              <div className="flex flex-col    justify-center ">
+            <div className="w-[98%] py-10 flex flex-col  items-center h-[35vh]  md:h-[25vh]  gap-2 justify-around p-2 md:w-[100% ] py-5   bg-[#4A25E1] rounded-2xl text-white text-[19px] lg:text-[12px]  md:text-[10px] lg:py-5">
+              <div className="flex flex-col text-[15px] sm:text-[12px]    justify-center ">
                 <h2>Go unlimited with PRO</h2>
                 <p>Get your AI Project to another</p>
                 <p>level and start doing more with</p>
                 <p>Horizon AI Template PRO!</p>
               </div>
-              <button className="bg-[#6d4def] p-1 rounded-2xl my-1">
+              <button className="bg-[#6d4def] p-1 rounded-2xl ">
                 Get started With Pro
               </button>
             </div>
           </div>
           <div className="mx-auto w-[91%]   ">
-            <div className="flex items-center shadow-sm rounded-md bg-white h-[4vh] ">
+            <div className="flex items-center shadow-sm rounded-md my-2 bg-white h-[4vh] ">
               <div className="h-[30px] w-[30px] rounded-[100%] ">
                 <img
                   className="h-[30px] object-fit w-[30px] rounded-[100%] "
                   src={image}
                 />
               </div>
-              <p className="">osonwa precious</p>
-              <IosShareIcon sx={{ marginLeft: "20px" }} />
+              <p className="ml-2 text-[10px]">osonwa precious</p>
+              <SendOutlinedIcon sx={{ marginLeft: "25px", width: "15px" }} />
             </div>
           </div>
         </div>

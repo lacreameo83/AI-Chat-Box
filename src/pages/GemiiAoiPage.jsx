@@ -1,12 +1,12 @@
 import React from 'react'
-import GeminiApi from '../component/outlet/GeminiApi'
-
+// import GeminiApi from '../component/outlet/GeminiApi'
+import Response from '../component/outlet/Response'
 function GemiiAoiPage() {
   return (
     <div>
-      <GeminiApi />
+      <Response />
     </div>
-  )
+  );
 }
 
 export default GemiiAoiPage

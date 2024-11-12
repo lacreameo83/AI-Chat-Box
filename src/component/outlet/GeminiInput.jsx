@@ -12,10 +12,10 @@ function GeminiInput() {
       <input
         onChange={(e) => setInputData(e.target.value)}
         value={inputData}
-        disabled={disabled}
+       
         placeholder=" send a message"
         type="text"
-        className="border rounded-3xl p-2 w-[250px] md:w-[500px] outline-none"
+        className="border text-[10px] rounded-3xl p-2 w-[200px] md:w-[400px] outline-none"
       />
       <Button
         onClick={() => onSent()}

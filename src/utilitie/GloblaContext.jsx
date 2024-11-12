@@ -25,7 +25,7 @@ setMessage(true);
 setloadingOutput(true);
 setTimeout(() => {
     setloadingOutput(false);
-}, 5000);
+}, 2000);
 
 const response = await run(inputData);
 let responseArray = response.split("**")

@@ -10,15 +10,14 @@ function HomePage() {
     <div
       style={{
         backgroundColor: dartmode ? "black" : "white",
-        
       }}
-      className='grid grid-cols-1 h-[100vh] sm:grid-cols-7   "'
+      className='grid grid-cols-1 h-[100vh] sm:flex   "'
     >
-      <div className="hidden sm:block col-span-1 md:col-span-2 lg:col-span-1   ">
+      <div className="hidden w-[20vw] sm:w-[30vw] md:w-[20vw]   sm:block    ">
         <Sidebar />
       </div>
-      <div className=" h-[100vh] sm:h-[100vh] sm:col-span-6 md:col-span-5 lg:col-span-6 pb-5  overflow-y-scroll ">
-        <div className="h-[10vh] sticky top-0 z-50  ml-1 ">
+      <div className=" flex-1 ">
+        <div className=" ">
           <Navbar />
         </div>
 

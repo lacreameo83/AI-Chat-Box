@@ -39,7 +39,7 @@ setIsSideBar(!isSidebar);
           }}
           className="font-[600] text-[20px]  "
         >
-          <p>Chat Ui</p>
+          <p className='text-[15px]'>Chat UI</p>
         </div>
         <div className="flex items-center gap-2 bg-white shadow-sm rounded-[50px] p-1">
           <div className="flex  items-center border-[2px] border-white  bg-blue-50 p-[1px] rounded-[50px] ">
@@ -67,7 +67,7 @@ setIsSideBar(!isSidebar);
         </div>
       </div>
       {isSidebar && (
-        <div className="overflow-scroll w-[80vw] h-[100vh]  z-50 bg-white text-black transition-all top-0">
+        <div className="overflow-scroll w-[80vw] h-[100vh]  z-50 bg-white text-black absolute transition-all top-12">
           <Sidebar />
         </div>
       )}
