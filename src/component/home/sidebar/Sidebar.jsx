@@ -33,7 +33,7 @@ function Sidebar() {
 
   return (
     <div className="  bg-white/50 px-2 h-[125vh]  md:h-[100vh] flex flex-col  items-start shadow-md  ">
-      <div className="h-[8vh] w-full sm:w-[30vw]  border-b-[1px] flex items-center justify-center shadow-sm">
+      <div className="h-[8vh] w-full sm:w-full  border-b-[1px] flex items-center justify-center shadow-sm">
         <h1 className="ml-4 text-[12px]">
           <span className="font-[900] text-[12px] ">HORIZON</span> AI FREE
         </h1>

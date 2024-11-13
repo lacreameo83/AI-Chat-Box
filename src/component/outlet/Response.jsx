@@ -69,7 +69,7 @@ function Response() {
     };
   return (
     <div>
-      <div className="flex flex-col h-[85vh] items-center justify-between ">
+      <div className="flex flex-col h-[80vh] sm:h-[85vh] items-center justify-between ">
         <div className="h-[8vh] ">
           <div className="font-[900] flex items-center gap-1 shadow-sm p-2 rounded-md">
             <img
@@ -123,7 +123,7 @@ function Response() {
 
       {/* Model side first display */}
       {model && (
-        <div className="h-[100vh] w-[100vw] sm:w-[79vw] bg-[rgba(216,214,175,0.1)] absolute top-0 right-3 flex items-center justify-center ">
+        <div className="h-[100vh] topwidth w-[100vw] sm:w-[68vw] md:w-[80vw] bg-[rgba(216,214,175,0.1)] absolute top-0 right-3 flex items-center justify-center ">
           <div
             style={{
               color: dartmode && "white",

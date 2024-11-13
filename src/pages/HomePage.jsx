@@ -13,7 +13,7 @@ function HomePage() {
       }}
       className='grid grid-cols-1 h-[100vh] sm:flex   "'
     >
-      <div className="hidden w-[20vw] sm:w-[30vw] md:w-[20vw]   sm:block    ">
+      <div className="hidden w-[20vw] sidebarcontainer    sm:block    ">
         <Sidebar />
       </div>
       <div className=" flex-1 ">
